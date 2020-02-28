@@ -11,13 +11,11 @@ class Warrior {
 	}
 }
 
-const michael = new Warrior('michael', 'sword', 1, 100, 200);
-const luke = new Warrior('luke', 'axe', 10, 500, 1000);
+characters.push(new Warrior('michael', 'sword', 1, 100, 200));
+characters.push(new Warrior('luke', 'axe', 10, 500, 1000));
 
-console.log(michael);
-characters.push(michael);
-characters.push(luke);
-console.log(characters);
+// characters.push(michael);
+// characters.push(luke);
 
 class Battle {
 	constructor(fighter1, fighter2) {
@@ -35,6 +33,5 @@ class Battle {
 	}
 }
 
-const firstBattle = new Battle(michael, luke);
+const firstBattle = new Battle(characters[0], characters[1]);
 console.log(firstBattle);
-console.log(firstBattle.startFight(michael, luke));
