@@ -17,15 +17,20 @@ describe('Battle', () => {
 		firstBattle = new Battle(firstGame.getCharacter(0), firstGame.getCharacter(1));
 	});
 	test('Make sure Battle object is created correctly.', () => {
-		// let firstGame = new Game();
-		// const firstBattle = new Battle(firstGame.getCharacter(0), firstGame.getCharacter(1));
 		expect(firstGame.getCharacter(0).name).toEqual('michael');
 		expect(firstGame.getCharacter(1).name).toEqual('luke');
 	});
-	test('Make sure the random experience is working.', () => {
-		// let firstGame = new Game();
-		// const firstBattle = new Battle(firstGame.getCharacter(0), firstGame.getCharacter(1));
-		expect(firstGame.getCharacter(0).name).toEqual('michael');
-		expect(firstGame.getCharacter(1).name).toEqual('luke');
+	test('Make sure there is a winner.', () => {
+		const result = firstBattle.startFight();
+		expect(result).toMatch('has won');
+	});
+	test('Make sure the random number generator is working.', () => {
+		let arr = [];
+		for (let i = 0; i < 1000; i++) {
+			let rand = firstBattle.rand(10);
+			let count = arr[rand] ? arr[rand] + 1 : 1;
+			arr[rand] = count;
+		}
+		console.log(arr);
 	});
 });

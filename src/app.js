@@ -39,11 +39,11 @@ export class Battle {
 	startFight() {
 		console.log(this.fighter1.strength);
 		if (this.fighter1.strength > this.fighter2.strength) {
-			console.log(`${this.fighter1.name} has won!`);
 			this.fighter1.experience += this.rand(10);
+			return `${this.fighter1.name} has won!`;
 		} else {
-			console.log(`${this.fighter2.name} has won!`);
 			this.fighter2.experience += this.rand(10);
+			return `${this.fighter2.name} has won!`;
 		}
 	}
 }
