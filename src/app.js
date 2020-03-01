@@ -31,10 +31,15 @@ export class Battle {
 	rand(max) {
 		return Math.floor(Math.random() * max) + 1;
 	}
-
+	// add agility or dex later
 	chanceToHit(strength) {
 		const chance = Math.floor(Math.random() * 100) + 1;
 		return chance <= strength;
+	}
+
+	calculateDamage(strength) {
+		const damage = Math.floor(Math.random() * strength) + 1;
+		return damage;
 	}
 
 	startFight() {
