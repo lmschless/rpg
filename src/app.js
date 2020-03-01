@@ -1,5 +1,4 @@
-// 'use strict';
-
+'use strict';
 export class Game {
 	constructor() {
 		this.characters = [];
@@ -22,9 +21,6 @@ export class Warrior {
 		this.experience = experience;
 	}
 }
-
-// characters.push(michael);
-// characters.push(luke);
 
 export class Battle {
 	constructor(fighter1, fighter2) {

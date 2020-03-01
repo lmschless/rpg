@@ -31,11 +31,14 @@ describe('Battle', () => {
 			let count = arr[rand] ? arr[rand] + 1 : 1;
 			arr[rand] = count;
 		}
-		console.log(arr);
 		let result = true;
 		arr.forEach(function(num) {
 			if (num <= 0) result = false;
 		});
 		expect(result).toBeTruthy();
+	});
+	test('Make sure there is a truthy value for experience.', () => {
+		firstBattle.startFight();
+		expect(firstGame.getCharacter(0).experience >= 1 || firstGame.getCharacter(1).experience >= 1).toBeTruthy();
 	});
 });
