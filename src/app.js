@@ -1,6 +1,6 @@
 // 'use strict';
 
-class Game {
+export class Game {
 	constructor() {
 		this.characters = [];
 		this.characters.push(new Warrior('michael', 'sword', 1, 100, 200));
@@ -26,7 +26,7 @@ export class Warrior {
 // characters.push(michael);
 // characters.push(luke);
 
-class Battle {
+export class Battle {
 	constructor(fighter1, fighter2) {
 		this.fighter1 = fighter1;
 		this.fighter2 = fighter2;
