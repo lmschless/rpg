@@ -41,4 +41,8 @@ describe('Battle', () => {
 		firstBattle.startFight();
 		expect(firstGame.getCharacter(0).experience >= 1 || firstGame.getCharacter(1).experience >= 1).toBeTruthy();
 	});
+	test('Make sure result is true when 100 strength is passed in, and false when 0 strength is passed in.', () => {
+		expect(firstBattle.chanceToHit(100)).toBeTruthy();
+		expect(firstBattle.chanceToHit(0)).toBeFalsy();
+	});
 });

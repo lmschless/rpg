@@ -32,8 +32,12 @@ export class Battle {
 		return Math.floor(Math.random() * max) + 1;
 	}
 
+	chanceToHit(strength) {
+		const chance = Math.floor(Math.random() * 100) + 1;
+		return chance <= strength;
+	}
+
 	startFight() {
-		console.log(this.fighter1.strength);
 		if (this.fighter1.strength > this.fighter2.strength) {
 			this.fighter1.experience += this.rand(10);
 			return `${this.fighter1.name} has won!`;
