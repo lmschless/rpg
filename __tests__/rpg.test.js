@@ -24,13 +24,18 @@ describe('Battle', () => {
 		const result = firstBattle.startFight();
 		expect(result).toMatch('has won');
 	});
-	test('Make sure the random number generator is working.', () => {
+	test('Make sure the random number generator is working, all values should be greater than 0.', () => {
 		let arr = [];
-		for (let i = 0; i < 1000; i++) {
+		for (let i = 1; i < 1000; i++) {
 			let rand = firstBattle.rand(10);
 			let count = arr[rand] ? arr[rand] + 1 : 1;
 			arr[rand] = count;
 		}
 		console.log(arr);
+		let result = true;
+		arr.forEach(function(num) {
+			if (num <= 0) result = false;
+		});
+		expect(result).toBeTruthy();
 	});
 });
