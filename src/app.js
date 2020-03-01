@@ -1,4 +1,16 @@
-const characters = [];
+'use strict';
+
+class Game {
+	constructor() {
+		this.characters = [];
+		this.characters.push(new Warrior('michael', 'sword', 1, 100, 200));
+		this.characters.push(new Warrior('luke', 'axe', 10, 500, 1000));
+	}
+
+	getCharacter(i) {
+		return this.characters[i];
+	}
+}
 
 class Warrior {
 	constructor(name, weapon, level = 1, strength = 5, health = 10, experience = 0) {
@@ -10,9 +22,6 @@ class Warrior {
 		this.experience = experience;
 	}
 }
-
-characters.push(new Warrior('michael', 'sword', 1, 100, 200));
-characters.push(new Warrior('luke', 'axe', 10, 500, 1000));
 
 // characters.push(michael);
 // characters.push(luke);
@@ -32,6 +41,8 @@ class Battle {
 		}
 	}
 }
+let firstGame = new Game();
 
-const firstBattle = new Battle(characters[0], characters[1]);
+const firstBattle = new Battle(firstGame.getCharacter(0), firstGame.getCharacter(1));
 console.log(firstBattle);
+console.log(firstGame);
