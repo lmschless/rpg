@@ -1,4 +1,6 @@
-'use strict';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+('use strict');
 export class Game {
 	constructor() {
 		this.characters = [];
