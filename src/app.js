@@ -2,8 +2,8 @@
 export class Game {
 	constructor() {
 		this.characters = [];
-		this.characters.push(new Warrior('michael', 'sword', 1, 100, 200));
-		this.characters.push(new Warrior('luke', 'axe', 10, 500, 1000));
+		this.characters.push(new Warrior('michael', 'sword', 1, 25, 200));
+		this.characters.push(new Warrior('luke', 'axe', 10, 45, 1000));
 	}
 
 	getCharacter(i) {
@@ -38,10 +38,20 @@ export class Battle {
 	}
 
 	startFight() {
-		if (this.fighter1.strength > this.fighter2.strength) {
+		let winner = false;
+		let chance1;
+		let chance2;
+		do {
+			chance1 = this.chanceToHit(this.fighter1.strength);
+			chance2 = this.chanceToHit(this.fighter2.strength);
+			if ((chance1 && !chance2) || (chance2 && !chance1)) {
+				winner = true;
+			}
+		} while (!winner);
+		if (chance1) {
 			this.fighter1.experience += this.rand(10);
 			return `${this.fighter1.name} has won!`;
-		} else {
+		} else if (chance2) {
 			this.fighter2.experience += this.rand(10);
 			return `${this.fighter2.name} has won!`;
 		}
