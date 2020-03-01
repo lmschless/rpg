@@ -1,6 +1,20 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './gameUI.js';
 ('use strict');
+
+export class Character {
+	constructor(name, charClass, strength, dexterity, wisdom, charisma, intelligence, constitution) {
+		this.name = name;
+		this.charClass = charClass;
+		this.strength = strength;
+		this.dexterity = dexterity;
+		this.wisdom = wisdom;
+		this.charisma = charisma;
+		this.intelligence = intelligence;
+		this.constitution = constitution;
+	}
+}
 export class Game {
 	constructor() {
 		this.characters = [];
@@ -8,18 +22,33 @@ export class Game {
 		this.characters.push(new Warrior('luke', 'axe', 10, 45, 1000));
 	}
 
+	addCharacter(
+		name = 'luke',
+		charClass,
+		strength = 50,
+		dexterity = 50,
+		wisdom = 50,
+		charisma = 50,
+		intelligence = 50,
+		constitution = 50
+	) {
+		console.log(`char class: ${charClass}`);
+	}
+
 	getCharacter(i) {
 		return this.characters[i];
 	}
 }
 
-export class Warrior {
-	constructor(name, weapon, level = 1, strength = 5, health = 10, experience = 0) {
+export class Warrior extends Character {
+	constructor(name, weapon, level = 1, strength = 5, health = 10, armorClass, experience = 0) {
+		super();
 		this.name = name;
 		this.weapon = weapon;
 		this.level = level;
 		this.strength = strength;
 		this.health = health;
+		this.armorClass = armorClass;
 		this.experience = experience;
 	}
 }
@@ -63,8 +92,10 @@ export class Battle {
 			return `${this.fighter2.name} has won!`;
 		}
 	}
+
+	determineWinner() {}
 }
-let firstGame = new Game();
+export let firstGame = new Game();
 
 const firstBattle = new Battle(firstGame.getCharacter(0), firstGame.getCharacter(1));
 console.log(firstBattle.startFight());
